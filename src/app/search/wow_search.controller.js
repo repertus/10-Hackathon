@@ -21,7 +21,7 @@
                 function(data) {
                     var b = 0;
                     var bosses = data.progression.raids.bosses;
-                    var bossMultipliers = multiList.getMulti(); 
+                    var bossMultipliers = multiList.getMulti(); //Calls the multiplier object through factory 
                     var compact = 0;
                     var hfcResult = 0;
                     var heroic = 'heroicKills';
@@ -59,6 +59,7 @@
                 function(error) {
                     console.log(error);
             });
+            
             //Calls the factory for Charater 2 user WoW data
             searchData.getData(vm.charIdTwo, vm.realmTwo).then(
                 function(data) {
@@ -83,6 +84,7 @@
                         if (raids[r].id === 7545) {
                             for (b = 0; b < raids[r].bosses.length; b++) {
                                 for (q = 0; q < bossMultipliers.length; q++) {
+                                    console.log(raids[r].bosses[b].name);
                                     if (bossMultipliers[q].id === raids[r].bosses[b].id) {
                                         var hfcResult = hfcResult + (bossMultipliers[q].lfrVal * raids[r].bosses[b].lfrKills) +
                                             (bossMultipliers[q].normVal * raids[r].bosses[b].normalKills) +
@@ -105,3 +107,16 @@
         }
     }
 })();
+
+
+// Future snippet code
+// function requestCharacter(id, vmObject) {
+//     searchData.getData(id).then(
+//         function(data) {
+//             vmObject = data;
+//             console.log(vmObject);
+//         },
+//         function(error) {
+//             console.log(error);
+//         });
+// }

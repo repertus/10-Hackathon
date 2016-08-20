@@ -28,7 +28,7 @@
                 "mythicVal": 3
             }, {
                 "name": "Iron Reaver",
-                "id": 90199,
+                "id": 90284,
                 "lfrVal": 0.05,
                 "normVal": 0.5,
                 "heroicVal": 0.75,

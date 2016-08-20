@@ -40,7 +40,7 @@
                     if (raids[r].id === 7545) {
                         for (b = 0; b < raids[r].bosses.length; b++) {
                             for (q = 0; q < bossMultipliers.length; q++) {
-                                if (bossMultipliers[q].id === raids[r].bosses[b].id) {
+                                if (bossMultipliers[q].id === raids[r].bosses[b].id) {//look to remove if
                                     lfrTotal = lfrTotal + raids[r].bosses[b].lfrKills;
                                     normalTotal = normalTotal + raids[r].bosses[b].normalKills;
                                     heroicTotal = heroicTotal + raids[r].bosses[b].heroicKills;
