@@ -1,0 +1,114 @@
+<!-- <div class="row">
+	<form action="" role="form" ng-submit='search.getData()'>
+		<div class='row'> -->
+			<!-- Input for character one UI -->
+<!-- 			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+				<div class="form-group">
+					<input type="text" class="form-control" id="" placeholder="Enter your character name" ng-model='search.charIdOne'>
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" id="" placeholder="Enter your realm" ng-model='search.realmOne'>
+				</div>		
+			</div> -->
+			<!-- Double axe image -->
+<!-- 			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+				<p>Image palce holder</p>
+			</div> -->
+			<!-- Input for character two UI -->
+<!-- 			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+				<div class="form-group">
+					<input type="text" class="form-control" id="" placeholder="Enter your opponent character name">
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" id="" placeholder="Enter your opponent's realm">
+				</div>
+			</div>
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div> -->
+
+<pre>{{search | json}}</pre>
+
+
+<div class="row">
+
+	<!-- Panel for WOW character one UI -->
+	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		<form role="form" ng-submit='search.getData()'>
+			<legend>Form title</legend>
+			<div class="form-group">
+				<label for="">Character name:</label>
+				<input type="text" class="form-control" id="inputChar" placeholder="Enter your character name" ng-model='search.charIdOne'>
+			</div>
+<!-- 			<div>
+				<label>Realm</label>
+				<input type="text" id="inputRealm" class="form-control" value="" required="required" placeholder="Enter your realm" ng-model='search.realmOne'>
+			</div> -->
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+
+	<!-- Image of double axes -->
+	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		<p>image place holder</p>
+		<!-- <img src="../content/img/arcanite_ripper.jpg" height="100px"> -->
+	</div>	
+	
+	<!-- Panel for WOW character two UI -->
+	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		<form action="" method="POST" role="form">
+			<legend>Form title</legend>
+			<div class="form-group">
+				<label for="">character name</label>
+				<input type="text" class="form-control" id="" placeholder="enter your character name">
+			</div>
+			<div>
+				<label>Realm</label>
+				<select name="" id="input" class="form-control" required="required">
+					<option value="">Realm area 52</option>
+				</select>
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+</div>
+
+<hr>
+
+<div class="row">
+	<!-- Column output for WOW Charater one -->
+	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<img src="" alt="">
+				<h4>{{search.data.name}}</h4>
+				<p>{{search.data.realm}}</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
+
+	<!-- Column output for WOW Character two -->
+	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<img src="" alt="">
+				<h4>character name</h4>
+				<p>Realm</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Message output for which character is better than the other -->
+<div class="row">
+	<p>character1 pwns character2!</p>
+	<p>git gud, character?!!!</p>
+</div>
+
+<pre>{{search.vmObject | json}}</pre>
+<a ui-sref="detail">Go to Detail</a>
+
+<div ui-view></div>
