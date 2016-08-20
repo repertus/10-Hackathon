@@ -15,7 +15,7 @@
     				controller: "SearchController as search"
         		})
         		.state('detail', {
-                    url: '/detail/:characterId',
+                    url: '/detail/:characId/:realmId',
         		    templateUrl: '/src/app/detail/wow.detail.html',
                     controller: 'DetailController as detail'
                 })

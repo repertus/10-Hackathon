@@ -17,13 +17,19 @@
 						<th>Mythic</th>
 					</tr>
 				</thead>
-				<tbody>
-					<tr>
-						<td></td>
+				<tbody ng-model='detail.bossez'>
+					<tr ng-repeat="boss in detail.bossez">
+						<td>{{boss.name}}</td>
+						<td>{{boss.lfr}}</td>
+						<td>{{boss.normal}}</td>
+						<td>{{boss.heroic}}</td>
+						<td>{{boss.mythic}}</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 	</div>
+	<!-- <pre>{{detail.bossez}}</pre> -->
+	<!-- <pre>{{ detail.data  | json }}</pre> -->
 <a ui-sref="search" class="btn btn-primary">Go to Search</a>
 <div ui-view></div>

@@ -16,10 +16,9 @@
 
         ////////////////
 
-        function getData(id) {
+        function getData(id, realm) {
         	var defer = $q.defer();
-        	// area-52 / sweetheart / ' + realm_one + '
-        	$http.get('https://us.api.battle.net/wow/character/area-52/' + id + '?fields=progression&locale=en_US&apikey=' + keys.wow_blizzard).then(
+        	$http.get('https://us.api.battle.net/wow/character/' + realm + '/' + id + '?fields=progression&locale=en_US&apikey=' + keys.wow_blizzard).then(
         		function(response) {
         			if (typeof response.data === 'object') {
         				defer.resolve(response.data);
