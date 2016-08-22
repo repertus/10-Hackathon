@@ -5,15 +5,17 @@
         .module('myApp')
         .controller('SearchController', SearchController);
 
-    SearchController.$inject = ['searchData', '$q', 'multiList'];
+    SearchController.$inject = ['searchData', '$q', 'multiList', 'toastr'];
 
 
-    function SearchController(searchData, $q, multiList) {
+    function SearchController(searchData, $q, multiList, toastr) {
         var vm = this;
         vm.data = {};
         vm.getData = getData;
 
+
         ////////////////
+
 
         function getData() {
             //Calls the factory for Charater 1 user WoW data
@@ -52,20 +54,19 @@
                             break;
                         }
                     }
-                    vm.charOneResults = hfcResult;
+                    vm.charOneResults = hfcResult;                  
                     console.log(hfcResult);
-                    // console.log(raids[r].bosses[b]);
                 },
                 function(error) {
                     console.log(error);
             });
-            
+
             //Calls the factory for Charater 2 user WoW data
             searchData.getData(vm.charIdTwo, vm.realmTwo).then(
                 function(data) {
                     var b = 0;
                     var bosses = data.progression.raids.bosses;
-                    var bossMultipliers = multiList.getMulti(); 
+                    var bossMultipliers = multiList.getMulti();
                     var compact = 0;
                     var hfcResult = 0;
                     var heroic = 'heroicKills';
@@ -97,13 +98,13 @@
                             break;
                         }
                     }
-                    vm.charTwoResults = hfcResult;
+                    vm.charTwoResults = hfcResult;           
                     console.log(hfcResult);
                     // console.log(raids[r].bosses[b]);
                 },
                 function(error) {
                     console.log(error);
-            });    
+            });
         }
     }
 })();

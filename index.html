@@ -2,13 +2,15 @@
 <html lang="en" ng-app='myApp'>
 <head>
   <meta charset="UTF-8">
-  <title>WOW Compatability</title>
+  <title>WOW PVE HERO PVP</title>
 <!-- bower:css -->
 <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
 <link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
 <!-- endbower -->
 <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
-<!-- <link rel="stylesheet" href="https://npmcdn.com/angular-toastr/dist/angular-toastr.css" /> -->
+<link rel="stylesheet" href="https://npmcdn.com/angular-toastr/dist/angular-toastr.css" />
+<link href="https://fonts.googleapis.com/css?family=MedievalSharp" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Amarante|Germania+One|MedievalSharp|New+Rocker|Uncial+Antiqua" rel="stylesheet">
 <!-- inject:css -->
 <link rel="stylesheet" href="/src/app/content/style.css">
 <!-- endinject -->
@@ -16,15 +18,15 @@
 
 <body>
 	
-	<header>
-		<h1>WOW</h1>
-		<h2>compatability</h2>
+	<header id='main-header'>
+		<h1 class='hero'>PVE HERO PVP</h1>
 	</header>
 	<!-- Main container div -->
 	<div class="container">
 		<div ui-view></div>
 	</div> <!-- Main container div -->
 
+<footer></footer>
 
 
 <!-- bower:js -->
@@ -33,14 +35,14 @@
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <!-- endbower -->
-<!-- <script src="https://npmcdn.com/angular-toastr/dist/angular-toastr.tpls.js"></script> -->
+<script src="https://npmcdn.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
 <!-- inject:js -->
 <script src="/src/app/app.js"></script>
 <script src="/src/app/detail/wow_detail.controller.js"></script>
-<script src="/src/app/secrets/keys.value.js"></script>
 <script src="/src/app/search/wow_multiplier.factory.js"></script>
 <script src="/src/app/search/wow_search.controller.js"></script>
 <script src="/src/app/search/wow_search.factory.js"></script>
+<script src="/src/app/secrets/keys.value.js"></script>
 <!-- endinject -->
 </body>
 </html>

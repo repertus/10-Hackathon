@@ -5,13 +5,13 @@
         .module('myApp')
         .controller('DetailController', DetailController);
 
-    DetailController.$inject = ['searchData', '$stateParams', 'multiList'];
+    DetailController.$inject = ['searchData', '$stateParams', 'multiList', 'toastr'];
 
     /* @ngInject */
-    function DetailController(searchData, $stateParams, multiList) {
+    function DetailController(searchData, $stateParams, multiList, toastr) {
         var detail = this;
         detail.bossez = [];
-        // vm.title = 'DetailController';
+        
 
         searchData.getData($stateParams.characId, $stateParams.realmId).then(
             function(data){
@@ -49,7 +49,8 @@
                                                         'lfr'    : raids[r].bosses[b].lfrKills,
                                                         'normal' : raids[r].bosses[b].normalKills,
                                                         'heroic' : raids[r].bosses[b].heroicKills,
-                                                        'mythic' : raids[r].bosses[b].mythicKills});
+                                                        'mythic' : raids[r].bosses[b].mythicKills,
+                                                        'http'   : bossMultipliers[q].http});
                                     break;
                                 }
                             }
@@ -57,23 +58,13 @@
                         break;
                     }
                 }
-
-                detail.bossez.push({
-                    'name'          : 'Total Kills by Type',
-                    'lfr'      : lfrTotal,
-                    'normal'   : normalTotal,
-                    'heroic'   : heroicTotal,
-                    'mythic'   : mythicTotal,
-                });
-
-
-
-
-
-
-
-
-
+                // detail.bossez.push({
+                //     'name'          : 'Total Kills by Type',
+                //     'lfr'      : lfrTotal,
+                //     'normal'   : normalTotal,
+                //     'heroic'   : heroicTotal,
+                //     'mythic'   : mythicTotal,
+                // });
             }, 
             function(error){
                 console.log(error);

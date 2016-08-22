@@ -1,35 +1,60 @@
 <div class="panel panel-default">
-	<div class="panel-body">
-		<h1>charactername</h1>
-		<h3>Realm</h3>
-		<p>details</p>
+	<div class="panel-body" id='headerDetailPanel'>
+		<img src="http://render-api-us.worldofwarcraft.com/static-render/us/{{detail.data.thumbnail}}" alt="" id='charOnethumb'>
+		<h1>Character Name: {{detail.data.name}}</h1>
+		<h3>Realm: {{detail.data.realm}}</h3>
 	</div>
 </div>
-	<div class="panel panel-default">
-		<div class="panel-body">
-			<table class="table table-hover">
-				<thead>
-					<tr>
-						<th>Boss</th>
-						<th>LFR</th>
-						<th>Normal</th>
-						<th>Heroic</th>
-						<th>Mythic</th>
-					</tr>
-				</thead>
-				<tbody ng-model='detail.bossez'>
-					<tr ng-repeat="boss in detail.bossez">
-						<td>{{boss.name}}</td>
-						<td>{{boss.lfr}}</td>
-						<td>{{boss.normal}}</td>
-						<td>{{boss.heroic}}</td>
-						<td>{{boss.mythic}}</td>
-					</tr>
-				</tbody>
-			</table>
+
+<div class="row">
+	<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-repeat='boss in detail.bossez'>
+		<div class="panel panel-default">
+			<div class='panel-heading'>
+				<h3>{{boss.name}}</h3>
+			</div>
+			<div class="panel-body" id='bossPicPanel'>
+				<img src="{{boss.http}}" alt="" id='bossPic' height='175px'>
+			</div>
+			<div class="panel-body" id='bossDetails'>
+				<ul>
+					<li>LFR kills:    {{boss.lfr}}</li>
+					<li>Normal kills: {{boss.normal}}</li>
+					<li>Heroic kills: {{boss.heroic}}</li>
+					<li>Mythic kills: {{boss.mythic}}</li>
+				</ul>
+			</div>
 		</div>
 	</div>
+</div>
+
+<!-- Information below left as a refernce for summary detail -->
+<!-- <div class="panel panel-default">
+	<div class="panel-body">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Boss</th>
+					<th>LFR</th>
+					<th>Normal</th>
+					<th>Heroic</th>
+					<th>Mythic</th>
+				</tr>
+			</thead>
+			<tbody ng-model='detail.bossez'>
+				<tr ng-repeat="boss in detail.bossez">
+					<td>{{boss.name}}</td>
+					<td>{{boss.lfr}}</td>
+					<td>{{boss.normal}}</td>
+					<td>{{boss.heroic}}</td>
+					<td>{{boss.mythic}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div> -->
+
 	<!-- <pre>{{detail.bossez}}</pre> -->
 	<!-- <pre>{{ detail.data  | json }}</pre> -->
+	<!-- <pre>{{detail.characId}}</pre> -->
 <a ui-sref="search" class="btn btn-primary">Go to Search</a>
 <div ui-view></div>

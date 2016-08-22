@@ -5,10 +5,10 @@
         .module('myApp')
         .factory('searchData', searchData);
 
-    searchData.$inject = ['$http', '$q', 'keys'];
+    searchData.$inject = ['$http', '$q', 'keys', 'toastr'];
 
     /* @ngInject */
-    function searchData($http, $q, keys) {
+    function searchData($http, $q, keys, toastr) {
         var service = {
             getData: getData
         };
@@ -27,6 +27,7 @@
         			}
         		}, 
         		function(error) {
+                    toastr.error('Network connection or user entry issue', 'Error');
         			defer.reject(error);
         		}
     		);

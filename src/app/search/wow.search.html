@@ -1,83 +1,91 @@
-<div class="row">
+<!-- <div class="row"> -->
 	<form action="" role="form" ng-submit='search.getData()'>
 		<div class='row'>
 			<!-- Input for character one UI -->
-			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
 				<div class="form-group">
+					<label for="">Character Name</label>
 					<input type="text" class="form-control" id="" placeholder="Enter your character name" ng-model='search.charIdOne'>
 				</div>
 				<div class="form-group">
+					<label for="">Realm</label>
 					<input type="text" class="form-control" id="" placeholder="Enter your realm" ng-model='search.realmOne'>
 				</div>		
 			</div>
-			<!-- Double axe image -->
-			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-				<p>Image palce holder</p>
+			<!-- HERO Title -->
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="pveTitle">
+				
 			</div>
 			<!-- Input for character two UI -->
-			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 				<div class="form-group">
-					<input type="text" class="form-control" id="" placeholder="Enter your opponent character name" ng-model='search.charIdTwo'>
+					<label for="">Character Name</label>
+					<input type="text" class="form-control" id="" placeholder="Enter your opponent's character name" ng-model='search.charIdTwo'>
 				</div>
 				<div class="form-group">
+					<label for="">Realm</label>
 					<input type="text" class="form-control" id="" placeholder="Enter your opponent's realm" ng-model='search.realmTwo'>
 				</div>
 			</div>
 		</div>
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
-</div>
+<!-- </div> -->
 
 <!-- <pre>{{search | json}}</pre> -->
-<hr>
+<!-- <pre>{{search.data.charOne.thumbnail}}</pre> -->
 
 <div class="row">
 	<!-- Column output for WOW Charater one -->
-	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-		<div class="panel panel-default">
+	<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+		<div ng-if='search.charOneResults > 0' class="panel panel-default" id='characOnePanel'>
 			<div class="panel-body">
-				<img src="" alt="">
-				<h4>{{search.data.charOne.name}}</h4>
-				<p>{{search.data.charOne.realm}}</p>
-				<h4 ng-show='{{search.charOneResults != null}}'>Your WoW ranking</h4>
-				<h1>{{search.charOneResults | number : 0}}</h1>
+				<h3>{{search.data.charOne.name}}</h3>
+				<h4>{{search.data.charOne.realm}}</h4>
+				<img src="http://render-api-us.worldofwarcraft.com/static-render/us/{{search.data.charOne.thumbnail}}" alt="" id='charOnethumb'>
+				<h4>Your HERO ranking is:</h4>
+				<h4>{{search.charOneResults | number : 0}} pts.</h4>
 			</div>
-			<div>
+			<div class='panelOut'>
 				<a ui-sref="detail({ characId : search.data.charOne.name, realmId : search.data.charOne.realm })">Go to Character Details</a>
 			</div>
 		</div>
 	</div>
 	
-	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
+	<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+		<!-- Message output for which character is better than the other -->
+		<div class="row">
+			<div ng-if='search.charOneResults > search.charTwoResults'>
+				<p class='winnerMessage' id='winnerOneFirst'>{{search.data.charOne.name}} pwns {{search.data.charTwo.name}}!</p>
+				<p class='winnerMessage' id='winnerOneSecond'>git gud, {{search.data.charTwo.name}}!</p>		
+			</div>
+			<div ng-if='search.charOneResults < search.charTwoResults'>
+				<p class='winnerMessage' id='winnerTwoFirst'>{{search.data.charTwo.name}} pwns {{search.data.charOne.name}}!</p>
+				<p class='winnerMessage' id='winnerTwoSecond'>git gud, {{search.data.charOne.name}}!</p>			
+			</div>
+		</div>
+	</div>
 
 	<!-- Column output for WOW Character two -->
-	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-		<div class="panel panel-default">
+	<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+		<div ng-if='search.charTwoResults > 0' class="panel panel-default"  id='characTwoPanel'>	
 			<div class="panel-body">
-				<!-- <img src="https://us.api.battle.net/wow/character/area-52/166/139145894-avatar.jpg?locale=en_US&apikey=gytkyzmwungqdy8fz9jqfcwqzhgr7skt" alt="" height="100px"> -->
-				<h4>{{search.data.charTwo.name}}</h4>
-				<p>{{search.data.charTwo.realm}}</p>
-				<h4 ng-show='{{search.charTwoResults != null}}'>Your WoW ranking</h4>
-				<h1>{{search.charTwoResults | number : 0}}</h1>
+				<h3>{{search.data.charTwo.name}}</h3>
+				<h4>{{search.data.charTwo.realm}}</h4>
+				<img src="http://render-api-us.worldofwarcraft.com/static-render/us/{{search.data.charTwo.thumbnail}}" alt="" id='charTwothumb'>
+				<h4>Your HERO ranking is:</h4>
+				<h4>{{search.charTwoResults | number : 0}} pts.</h4>
 			</div>
-			<div>
+			<div class='panelOut'>
 				<a ui-sref="detail({ characId : search.data.charTwo.name, realmId : search.data.charTwo.realm })">Go to Character Details</a>
 			</div>
 		</div>
 	</div>
 </div>
 
-<!-- Message output for which character is better than the other -->
-<!-- <div class="row">
-	<div ng-if="{{search.charTwoResults < search.charOneResults}}">
-		<p>1{{search.data.charOne.name}} pwns {{search.data.charTwo.name}}!</p>
-		<p>git gud, {{search.data.charTwo.name}}!</p>		
-	</div>
-	<div ng-if='{{search.charTwoResults > search.charOneResults}}'>
-		<p>2{{search.data.charTwo.name}} pwns {{search.data.charOne.name}}!</p>
-		<p>git gud, {{search.data.charOne.name}}!</p>			
-	</div>
-</div> -->
+
+
+<!-- <pre>{{search.charTwoResults > search.charOneResults}}</pre> -->
 
 <div class='row'>
 	<span></span>

@@ -3,7 +3,7 @@
 
 
     angular
-        .module('myApp', ['ui.router'])
+        .module('myApp', ['ui.router', 'toastr'])
         .config(function($urlRouterProvider, $stateProvider) {
         	
             $urlRouterProvider.otherwise('/search');
